@@ -1,11 +1,11 @@
 const express = require ('express')
 const Router = express.Router()
 
-const Task = require('../models/task')
+const {Libros, Autores, Generos, Editoriales} = require('../models/Library.js')
 
-Router.get('/', async(req,res)=>{
+Router.get('/getBooks', async(req,res)=>{
     try {
-        const items = await Task.findAll()
+        const items = await Libros.findAll()
         res.status(200).send({success: true, items})
     } catch (error) {
         let e = error.toString()
@@ -13,6 +13,103 @@ Router.get('/', async(req,res)=>{
         console.log(e)
     }
 })
+
+Router.get('/getAuthors', async(req,res)=>{
+    try {
+        const items = await Autores.findAll()
+        res.status(200).send({success: true, items})
+    } catch (error) {
+        let e = error.toString()
+        res.status(500).send({success:false, error: e})
+        console.log(e)
+    }
+})
+
+Router.get('/getGenders', async(req,res)=>{
+    try {
+        const items = await Generos.findAll()
+        res.status(200).send({success: true, items})
+    } catch (error) {
+        let e = error.toString()
+        res.status(500).send({success:false, error: e})
+        console.log(e)
+    }
+})
+
+Router.get('/getEditorials', async(req,res)=>{
+    try {
+        const items = await Editoriales.findAll()
+        res.status(200).send({success: true, items})
+    } catch (error) {
+        let e = error.toString()
+        res.status(500).send({success:false, error: e})
+        console.log(e)
+    }
+})
+
+Router.post('/addAuthor', async(req,res)=>{
+    try{
+        const created = await Autores.create({
+            Nombre: req.body.nombre,
+            Apellido: req.body.apellido,
+            FechaNacimiento: req.body.fechaNacimiento
+        })
+        res.status(200).send({success: true, created})
+    }catch(error){
+        let e = error.toString()
+        res.status(500).send({success:false, error: e})
+        console.log(e)
+    }
+})
+
+Router.post('/addGender', async(req,res)=>{
+    try{
+        const created = await Generos.create({
+            Nombre: req.body.nombre,
+        })
+        res.status(200).send({success: true, created})
+    }catch(error){
+        let e = error.toString()
+        res.status(500).send({success:false, error: e})
+        console.log(e)
+    }
+})
+
+Router.post('/addEditorial', async(req,res)=>{
+    try{
+        const created = await Editoriales.create({
+            Nombre: req.body.nombre,
+        })
+        res.status(200).send({success: true, created})
+    }catch(error){
+        let e = error.toString()
+        res.status(500).send({success:false, error: e})
+        console.log(e)
+    }
+})
+
+Router.post('/addBook', async(req,res)=>{
+    try{
+        const created = await Libros.create({
+            Id_Autores: req.body.autor,
+            Id_Genero: req.body.genero,
+            Id_Editorial: req.body.editorial,
+            Titulo: req.body.titulo,
+            Sinopsis: req.body.sinopsis,
+            FechaPublicacion: req.body.fechaPublicacion,
+            ImgUrl: req.body.imgurl,
+            Idioma: req.body.idioma,
+            Edicion: req.body.edicion
+        })
+        res.status(200).send({success: true, created})
+    }catch(error){
+        let e = error.toString()
+        res.status(500).send({success:false, error: e})
+        console.log(e)
+    }
+})
+
+/*
 
 Router.post('/add', async(req,res)=>{
     try{
@@ -68,7 +165,7 @@ Router.delete('/delete/:id', async(req,res)=>{
 })
 
 /************RUTAS DE BUSQUEDA**********/
-
+/*
 Router.get('/search', async(req,res)=>{
     console.log(req.query)
     try {
@@ -84,6 +181,7 @@ Router.get('/search', async(req,res)=>{
         console.log(e)
     }
 })
+*/
 
 module.exports = Router
 

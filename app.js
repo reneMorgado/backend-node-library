@@ -3,9 +3,9 @@ const app = express()
 const port = process.env.PORT || 3000
 const bodyParser = require('body-parser')
 
-const tasks = require ('./routes/tasks')
-const {connectDB, sequelize} = require('./database')
-const Task = require('./models/task')
+const library = require ('./routes/library.js')
+const {connectDB} = require('./database')
+const {Libros, Autores, Generos, Editoriales} = require('./models/Library.js')
 
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
@@ -14,10 +14,13 @@ app.get('/',(req,res)=>{
     res.send('Hello world')
 })
 
-app.use('/tasks', tasks)
+app.use('/library', library)
 
 const createTable = async () => {
-    await Task.sync()
+    await Autores.sync()
+    await Generos.sync()
+    await Editoriales.sync()
+    await Libros.sync()
 }
 
 app.listen(port, ()=>{

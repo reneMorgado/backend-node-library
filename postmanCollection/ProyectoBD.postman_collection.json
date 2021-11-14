@@ -1,0 +1,197 @@
+{
+	"info": {
+		"_postman_id": "0b47520c-4a64-49bf-9226-05a75b781731",
+		"name": "ProyectoBD",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getBooks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/library/getBooks",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"library",
+						"getBooks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAuthors",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/library/getAuthors",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"library",
+						"getAuthors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getGenders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/library/getGenders",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"library",
+						"getGenders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getEditorials",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/library/getEditorials",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"library",
+						"getEditorials"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addAuthor",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Joaquin\",\n    \"apellido\": \"Sabina\",\n    \"fechaNacimiento\": \"1949-02-12\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/library/addAuthor",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"library",
+						"addAuthor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addGender",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Poesía\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/library/addGender",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"library",
+						"addGender"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addEditorial",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"AGT EDITOR\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/library/addEditorial",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"library",
+						"addEditorial"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addBook",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"autor\": 1,\n    \"genero\": 1,\n    \"editorial\": 1,\n    \"titulo\": \"Ciento volando de catorce\",\n    \"sinopsis\": \"El lector de ciento volando encontrará el mundo del cantante Joaquín Sabina, pero convertido ahora en soneto.Durante años ha condensado sus soledades, sus indignaciones y sus alegrías en el domicilio particular de los catorce versos.Joaquín vive en el soneto con ojos de farro, vigilando la vida cotidiana desde la altura de sus noches, en una tarea que se desdobla entre las luces públicas y las sombras privadas, o entre las luces privadas y las sombras públicas, mitad aviso para navegantes, mitad diálogo con las melancolías del corazón.Y cuando Joaquín Sabina utiliza la palabra corazón, no sólo se refiere a la historia de sus sentimientos, sino a una lealtad vital, con implicaciones generales, que no deben pasar de moda, aunque los otoños doren la piel y ya no resulte necesario viajar al Norte entrenes sucios.\",\n    \"fechaPublicacion\": \"2012-01-01\",\n    \"imgurl\": \"https://www.gandhi.com.mx/media/catalog/product/9/7/9789684631199.jpg?optimize=high&bg-color=255,255,255&fit=bounds&height=478&width=300&canvas=300:478\",\n    \"idioma\": \"Español\",\n    \"edicion\": 3 \n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/library/addBook",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"library",
+						"addBook"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
