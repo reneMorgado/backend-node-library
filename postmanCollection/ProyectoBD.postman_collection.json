@@ -7,6 +7,66 @@
 	"item": [
 		{
 			"name": "loginSession",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"pm.environment.set(\"token\", jsonData.token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"renemorgado3@gmail.com\",\n    \"password\": \"pass123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/loginSession",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"loginSession"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "loginSession Copy",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.environment.set(\"token\", jsonData.token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -20,13 +80,12 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/library/loginSession",
+					"raw": "localhost:3000/loginSession",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
-						"library",
 						"loginSession"
 					]
 				}
@@ -37,7 +96,13 @@
 			"name": "getAuthors",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "access-token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "localhost:3000/library/getAuthors",
 					"host": [
@@ -56,7 +121,13 @@
 			"name": "getGenders",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "access-token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "localhost:3000/library/getGenders",
 					"host": [
@@ -75,7 +146,13 @@
 			"name": "getEditorials",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "access-token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "localhost:3000/library/getEditorials",
 					"host": [
@@ -91,10 +168,42 @@
 			"response": []
 		},
 		{
+			"name": "getEditorialsName",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "access-token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/library/getEditorialsName/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"library",
+						"getEditorialsName",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "getLanguages",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "access-token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "localhost:3000/library/getLanguages",
 					"host": [
@@ -111,9 +220,54 @@
 		},
 		{
 			"name": "getBooks",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "access-token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/library/getBooks",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"library",
+						"getBooks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getBooks Copy",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "access-token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "localhost:3000/library/getBooks",
 					"host": [
@@ -132,7 +286,13 @@
 			"name": "getUsers",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "access-token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "localhost:3000/library/getUsers",
 					"host": [
@@ -151,7 +311,13 @@
 			"name": "getRents",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "access-token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "localhost:3000/library/getRents",
 					"host": [
@@ -170,10 +336,16 @@
 			"name": "addAuthor",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "access-token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"nombre\": \"Joaquin\",\n    \"apellido\": \"Sabina\",\n    \"fechaNacimiento\": \"1949-02-12\"\n}",
+					"raw": "{\n    \"nombre\": \"Mario\",\n    \"apellido\": \"Benedetti Farrugia\",\n    \"fechaNacimiento\": \"1920-09-14\",\n    \"imagen\": \"https://www.biografiasyvidas.com/biografia/b/fotos/benedetti_mario_3.jpg\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -198,10 +370,16 @@
 			"name": "addGender",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "access-token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"genero\": \"Terror\"\n}",
+					"raw": "{\n    \"genero\": \"Poesia\",\n    \"imagen\": \"https://www.catedra.com/imagenes/blog/poesia.jpg\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -226,10 +404,16 @@
 			"name": "addEditorial",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "access-token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"editorial\": \"AGT EDITOR\"\n}",
+					"raw": "{\n    \"editorial\": \"Oceano expres\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -254,7 +438,13 @@
 			"name": "addLanguage",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "access-token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n    \"idioma\": \"Español\"\n}",
@@ -282,10 +472,16 @@
 			"name": "addBook",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "access-token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"autor\": 1,\n    \"genero\": 1,\n    \"editorial\": 1,\n    \"idioma\": 1,\n    \"titulo\": \"Ciento volando de catorce\",\n    \"sinopsis\": \"El lector de ciento volando encontrará el mundo del cantante Joaquín Sabina, pero convertido ahora en soneto.Durante años ha condensado sus soledades, sus indignaciones y sus alegrías en el domicilio particular de los catorce versos.Joaquín vive en el soneto con ojos de farro, vigilando la vida cotidiana desde la altura de sus noches, en una tarea que se desdobla entre las luces públicas y las sombras privadas, o entre las luces privadas y las sombras públicas, mitad aviso para navegantes, mitad diálogo con las melancolías del corazón.Y cuando Joaquín Sabina utiliza la palabra corazón, no sólo se refiere a la historia de sus sentimientos, sino a una lealtad vital, con implicaciones generales, que no deben pasar de moda, aunque los otoños doren la piel y ya no resulte necesario viajar al Norte entrenes sucios.\",\n    \"fechaPublicacion\": \"2012-01-01\",\n    \"imgurl\": \"https://www.gandhi.com.mx/media/catalog/product/9/7/9789684631199.jpg?optimize=high&bg-color=255,255,255&fit=bounds&height=478&width=300&canvas=300:478\",\n    \"edicion\": 3 \n\n}",
+					"raw": "{\n    \"autor\": 1,\n    \"genero\": 1,\n    \"editorial\": 1,\n    \"idioma\": 1,\n    \"titulo\": \"20 poemas de amor y una canción desesperada\",\n    \"sinopsis\": \"\\\"Para mi corazón basta tu pecho, para tu libertad bastan mis alas. Desde mi boca llegará hasta el cielo lo que estaba dormido sobre tu alma. Es en ti la ilusión de cada día.\\\" Pablo Neruda, Poema 12 (fragmento). Este libro, publicado originalmente en 1924. Es una obra que refleja los claroscuros del amor: la vehemencia, el júbilo y la exaltación, pero también la zozobra, la incertidumbre y la melancolía. Es un poemario de belleza imperecedera y apasionado lirismo en cuyas páginas late aún el impulso del modernismo pero en donde se pueden apreciar los destellos de la renovación formal de la poesía que protagonizó el autor. Pablo Neruda (Chile, 1904-1973), cuyo verdadero nombre era Ricardo Eliécer Neftalí Reyes Basoalto, es uno de los poetas más importantes de Hispanoamérica. Obtuvo el premio Nobel de Literatura en 1971.\",\n    \"fechaPublicacion\": \"2010-11-01\",\n    \"imgurl\": \"https://images-na.ssl-images-amazon.com/images/I/51KjKHPQMOL._SX327_BO1,204,203,200_.jpg\",\n    \"edicion\": 1 ,\n    \"cantidad\": 2\n\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -313,7 +509,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"nombre\": \"Rene\",\n    \"apellido\": \"Morgado\",\n    \"edad\": 20,\n    \"email\": \"renemorgado333@gmail.com\",\n    \"password\": \"pass123\"\n}",
+					"raw": "{\n    \"nombre\": \"Rene\",\n    \"apellido\": \"Morgado\",\n    \"edad\": 20,\n    \"email\": \"admin@mail.com\",\n    \"password\": \"pass123\", \n    \"administrador\": true\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -321,13 +517,12 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/library/addUser",
+					"raw": "localhost:3000/addUser",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
-						"library",
 						"addUser"
 					]
 				}
@@ -338,10 +533,16 @@
 			"name": "addRent",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "access-token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"usuario\": 1,\n    \"libro\": 1,\n    \"fecha\": \"2021-11-14\"\n}",
+					"raw": "{\n    \"usuario\": 1,\n    \"libro\": 1,\n    \"fecha\": \"2021-11-21\",\n    \"entrega\": \"2021-11-22\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -366,7 +567,13 @@
 			"name": "deleteAuthor/:id",
 			"request": {
 				"method": "DELETE",
-				"header": [],
+				"header": [
+					{
+						"key": "access-token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "localhost:3000/library/deleteAuthor/1",
 					"host": [
@@ -386,7 +593,13 @@
 			"name": "deleteGender/:id",
 			"request": {
 				"method": "DELETE",
-				"header": [],
+				"header": [
+					{
+						"key": "access-token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "localhost:3000/library/deleteGender/1",
 					"host": [
@@ -406,7 +619,13 @@
 			"name": "deleteEditorial/:id",
 			"request": {
 				"method": "DELETE",
-				"header": [],
+				"header": [
+					{
+						"key": "access-token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "localhost:3000/library/deleteEditorial/1",
 					"host": [
@@ -426,7 +645,13 @@
 			"name": "deleteLanguage/:id",
 			"request": {
 				"method": "DELETE",
-				"header": [],
+				"header": [
+					{
+						"key": "access-token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "localhost:3000/library/deleteLanguage/1",
 					"host": [
@@ -446,9 +671,15 @@
 			"name": "deleteBook/:id",
 			"request": {
 				"method": "DELETE",
-				"header": [],
+				"header": [
+					{
+						"key": "access-token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
 				"url": {
-					"raw": "localhost:3000/library/deleteBook/1",
+					"raw": "localhost:3000/library/deleteBook/2",
 					"host": [
 						"localhost"
 					],
@@ -456,7 +687,7 @@
 					"path": [
 						"library",
 						"deleteBook",
-						"1"
+						"2"
 					]
 				}
 			},
@@ -466,7 +697,13 @@
 			"name": "deleteUser/:id",
 			"request": {
 				"method": "DELETE",
-				"header": [],
+				"header": [
+					{
+						"key": "access-token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "localhost:3000/library/deleteUser/1",
 					"host": [
@@ -486,7 +723,13 @@
 			"name": "deleteRent/:id",
 			"request": {
 				"method": "DELETE",
-				"header": [],
+				"header": [
+					{
+						"key": "access-token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n    \"libro\": 1\n}",
