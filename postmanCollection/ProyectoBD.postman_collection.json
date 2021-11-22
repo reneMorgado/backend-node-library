@@ -6,19 +6,28 @@
 	},
 	"item": [
 		{
-			"name": "getBooks",
+			"name": "loginSession",
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"renemorgado333@gmail.com\",\n    \"password\": \"pass123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "localhost:3000/library/getBooks",
+					"raw": "localhost:3000/library/loginSession",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
 						"library",
-						"getBooks"
+						"loginSession"
 					]
 				}
 			},
@@ -82,6 +91,82 @@
 			"response": []
 		},
 		{
+			"name": "getLanguages",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/library/getLanguages",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"library",
+						"getLanguages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getBooks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/library/getBooks",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"library",
+						"getBooks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUsers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/library/getUsers",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"library",
+						"getUsers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getRents",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/library/getRents",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"library",
+						"getRents"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "addAuthor",
 			"request": {
 				"method": "POST",
@@ -116,7 +201,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"nombre\": \"Poesía\"\n}",
+					"raw": "{\n    \"genero\": \"Terror\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -144,7 +229,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"nombre\": \"AGT EDITOR\"\n}",
+					"raw": "{\n    \"editorial\": \"AGT EDITOR\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -166,13 +251,41 @@
 			"response": []
 		},
 		{
+			"name": "addLanguage",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"idioma\": \"Español\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/library/addLanguage",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"library",
+						"addLanguage"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "addBook",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"autor\": 1,\n    \"genero\": 1,\n    \"editorial\": 1,\n    \"titulo\": \"Ciento volando de catorce\",\n    \"sinopsis\": \"El lector de ciento volando encontrará el mundo del cantante Joaquín Sabina, pero convertido ahora en soneto.Durante años ha condensado sus soledades, sus indignaciones y sus alegrías en el domicilio particular de los catorce versos.Joaquín vive en el soneto con ojos de farro, vigilando la vida cotidiana desde la altura de sus noches, en una tarea que se desdobla entre las luces públicas y las sombras privadas, o entre las luces privadas y las sombras públicas, mitad aviso para navegantes, mitad diálogo con las melancolías del corazón.Y cuando Joaquín Sabina utiliza la palabra corazón, no sólo se refiere a la historia de sus sentimientos, sino a una lealtad vital, con implicaciones generales, que no deben pasar de moda, aunque los otoños doren la piel y ya no resulte necesario viajar al Norte entrenes sucios.\",\n    \"fechaPublicacion\": \"2012-01-01\",\n    \"imgurl\": \"https://www.gandhi.com.mx/media/catalog/product/9/7/9789684631199.jpg?optimize=high&bg-color=255,255,255&fit=bounds&height=478&width=300&canvas=300:478\",\n    \"idioma\": \"Español\",\n    \"edicion\": 3 \n\n}",
+					"raw": "{\n    \"autor\": 1,\n    \"genero\": 1,\n    \"editorial\": 1,\n    \"idioma\": 1,\n    \"titulo\": \"Ciento volando de catorce\",\n    \"sinopsis\": \"El lector de ciento volando encontrará el mundo del cantante Joaquín Sabina, pero convertido ahora en soneto.Durante años ha condensado sus soledades, sus indignaciones y sus alegrías en el domicilio particular de los catorce versos.Joaquín vive en el soneto con ojos de farro, vigilando la vida cotidiana desde la altura de sus noches, en una tarea que se desdobla entre las luces públicas y las sombras privadas, o entre las luces privadas y las sombras públicas, mitad aviso para navegantes, mitad diálogo con las melancolías del corazón.Y cuando Joaquín Sabina utiliza la palabra corazón, no sólo se refiere a la historia de sus sentimientos, sino a una lealtad vital, con implicaciones generales, que no deben pasar de moda, aunque los otoños doren la piel y ya no resulte necesario viajar al Norte entrenes sucios.\",\n    \"fechaPublicacion\": \"2012-01-01\",\n    \"imgurl\": \"https://www.gandhi.com.mx/media/catalog/product/9/7/9789684631199.jpg?optimize=high&bg-color=255,255,255&fit=bounds&height=478&width=300&canvas=300:478\",\n    \"edicion\": 3 \n\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -188,6 +301,211 @@
 					"path": [
 						"library",
 						"addBook"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Rene\",\n    \"apellido\": \"Morgado\",\n    \"edad\": 20,\n    \"email\": \"renemorgado333@gmail.com\",\n    \"password\": \"pass123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/library/addUser",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"library",
+						"addUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addRent",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"usuario\": 1,\n    \"libro\": 1,\n    \"fecha\": \"2021-11-14\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/library/addRent",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"library",
+						"addRent"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteAuthor/:id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/library/deleteAuthor/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"library",
+						"deleteAuthor",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteGender/:id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/library/deleteGender/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"library",
+						"deleteGender",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteEditorial/:id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/library/deleteEditorial/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"library",
+						"deleteEditorial",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteLanguage/:id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/library/deleteLanguage/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"library",
+						"deleteLanguage",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteBook/:id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/library/deleteBook/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"library",
+						"deleteBook",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteUser/:id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/library/deleteUser/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"library",
+						"deleteUser",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteRent/:id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"libro\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/library/deleteRent/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"library",
+						"deleteRent",
+						"1"
 					]
 				}
 			},

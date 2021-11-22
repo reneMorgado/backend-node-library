@@ -8,18 +8,22 @@ const Autores = sequelize.define('Autores',{
         allowNull: false,
         autoIncrement: true
     },
-    Nombre: {
+    Nombre_Autor: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    Apellido: {
+    Apellido_Autor: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    FechaNacimiento: {
+    Fecha_Nacimiento_Autor: {
         type: DataTypes.DATE,
         allowNull: false
     },
+    Imagen_Autor:{
+        type: DataTypes.STRING,
+        allowNull: false
+    }
 })
 
 const Generos = sequelize.define('Generos',{
@@ -29,7 +33,11 @@ const Generos = sequelize.define('Generos',{
         allowNull: false,
         autoIncrement: true
     },
-    Nombre: {
+    Genero: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    Imagen_Genero:{
         type: DataTypes.STRING,
         allowNull: false
     }
@@ -42,7 +50,20 @@ const Editoriales = sequelize.define('Editoriales',{
         allowNull: false,
         autoIncrement: true
     },
-    Nombre: {
+    Editorial: {
+        type: DataTypes.STRING,
+        allowNull: false
+    }
+})
+
+const Idiomas = sequelize.define('Idiomas',{
+    Id_Idioma:{
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        allowNull: false,
+        autoIncrement: true
+    },
+    Idioma: {
         type: DataTypes.STRING,
         allowNull: false
     }
@@ -79,6 +100,14 @@ const Libros = sequelize.define('Libros',{
             key: 'Id_Editorial'
         }
     },
+    Id_Idioma:{
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+            model: 'Idiomas',
+            key: 'Id_Idioma'
+        }
+    },
     Titulo: {
         type: DataTypes.STRING,
         allowNull: false
@@ -101,20 +130,88 @@ const Libros = sequelize.define('Libros',{
         type: DataTypes.STRING,
         allowNull: false
     },
-    Idioma:{
-        type: DataTypes.STRING,
-        allowNull: false
-    },
     Edicion:{
         type: DataTypes.INTEGER,
         allowNull: false
     }
 })
 
+const Usuarios = sequelize.define('Usuarios',{
+    Id_Usuario:{
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        allowNull: false,
+        autoIncrement: true
+    },
+    Nombre: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    Apellido: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    Edad: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+    },
+    Email: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    Password: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    Administrador: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue:false
+    }
+})
+
+const Rentas = sequelize.define('Rentas',{
+    Id_Renta:{
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        allowNull: false,
+        autoIncrement: true
+    },
+    Id_Usuario:{
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+            model: 'Usuarios',
+            key: 'Id_Usuario'
+        }
+    },
+    Id_Libro:{
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+            model: 'Libros',
+            key: 'Id_Libro'
+        }
+
+    },
+    FechaRenta: {
+        type: DataTypes.DATE,
+        allowNull: false
+    },
+    FechaDevolucion: {
+        type: DataTypes.DATE,
+        allowNull: false
+    }
+})
 
 
 Autores.hasMany(Libros)
 Generos.hasMany(Libros)
 Editoriales.hasMany(Libros)
+Idiomas.hasMany(Libros)
 
-module.exports = {Libros, Autores, Generos, Editoriales}
+Usuarios.hasMany(Rentas)
+Libros.hasOne(Rentas)
+
+
+module.exports = {Libros, Autores, Generos, Editoriales, Idiomas, Usuarios, Rentas}
