@@ -2,14 +2,14 @@ const { Sequelize } = require('sequelize')
 
 /* Conexión a la base de datos */
 const sequelize = new Sequelize('NodeTest', 'SA', 'Pass123!', {
-    host: '127.0.0.1',
-    dialect: 'mysql',
+    host: '192.168.100.10',
+    dialect: 'mssql',
     pool: {
         max: 5,
         min: 0,
         idle: 10000
     },
-    port: 3306
+    port: 14333
 })
 
 const connectDB = async() => {
