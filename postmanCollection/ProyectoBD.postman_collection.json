@@ -33,7 +33,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"email\": \"renemorgado3@gmail.com\",\n    \"password\": \"pass123\"\n}",
+					"raw": "{\n    \"email\": \"admin@mail.com\",\n    \"password\": \"pass123\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -118,6 +118,38 @@
 			"response": []
 		},
 		{
+			"name": "getAuthorsName",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "access-token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/library/getAuthorsName/:id",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"library",
+						"getAuthorsName",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "getGenders",
 			"request": {
 				"method": "GET",
@@ -137,6 +169,38 @@
 					"path": [
 						"library",
 						"getGenders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getGendersById",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "access-token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/library/getGendersName/:id",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"library",
+						"getGendersName",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "2"
+						}
 					]
 				}
 			},
@@ -219,6 +283,32 @@
 			"response": []
 		},
 		{
+			"name": "getLanguagesById",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "access-token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/library/getLanguagesName/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"library",
+						"getLanguagesName",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "getBooks",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
@@ -251,7 +341,7 @@
 			"response": []
 		},
 		{
-			"name": "getBooks Copy",
+			"name": "getBookById",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -269,14 +359,125 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "localhost:3000/library/getBooks",
+					"raw": "localhost:3000/library/getBookById/:id",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
 						"library",
-						"getBooks"
+						"getBookById",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAvailableBooks",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "access-token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/library/getAvailableBooks",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"library",
+						"getAvailableBooks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getBooksByAuthor",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "access-token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/library/getBooksByAuthor/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"library",
+						"getBooksByAuthor",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getBooksByGender",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "access-token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/library/getBooksByGender/:id",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"library",
+						"getBooksByGender",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "2"
+						}
 					]
 				}
 			},
@@ -308,6 +509,32 @@
 			"response": []
 		},
 		{
+			"name": "getUsersNameById",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "access-token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/library/getUserNameById/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"library",
+						"getUserNameById",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "getRents",
 			"request": {
 				"method": "GET",
@@ -333,6 +560,32 @@
 			"response": []
 		},
 		{
+			"name": "getRentsByUser",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "access-token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/library/getRentsByUser/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"library",
+						"getRentsByUser",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "addAuthor",
 			"request": {
 				"method": "POST",
@@ -345,7 +598,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"nombre\": \"Mario\",\n    \"apellido\": \"Benedetti Farrugia\",\n    \"fechaNacimiento\": \"1920-09-14\",\n    \"imagen\": \"https://www.biografiasyvidas.com/biografia/b/fotos/benedetti_mario_3.jpg\"\n}",
+					"raw": "{\n    \"nombre\": \"Pablo\",\n    \"apellido\": \"Neruda\",\n    \"fechaNacimiento\": \"1920-09-14\",\n    \"imagen\": \"https://www.biografiasyvidas.com/biografia/b/fotos/benedetti_mario_3.jpg\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -379,7 +632,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"genero\": \"Poesia\",\n    \"imagen\": \"https://www.catedra.com/imagenes/blog/poesia.jpg\"\n}",
+					"raw": "{\n    \"genero\": \"Musica\",\n    \"imagen\": \"https://www.catedra.com/imagenes/blog/poesia.jpg\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -413,7 +666,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"editorial\": \"Oceano expres\"\n}",
+					"raw": "{\n    \"editorial\": \"Oceano\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -447,7 +700,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"idioma\": \"Español\"\n}",
+					"raw": "{\n    \"idioma\": \"Aleman\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -481,7 +734,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"autor\": 1,\n    \"genero\": 1,\n    \"editorial\": 1,\n    \"idioma\": 1,\n    \"titulo\": \"20 poemas de amor y una canción desesperada\",\n    \"sinopsis\": \"\\\"Para mi corazón basta tu pecho, para tu libertad bastan mis alas. Desde mi boca llegará hasta el cielo lo que estaba dormido sobre tu alma. Es en ti la ilusión de cada día.\\\" Pablo Neruda, Poema 12 (fragmento). Este libro, publicado originalmente en 1924. Es una obra que refleja los claroscuros del amor: la vehemencia, el júbilo y la exaltación, pero también la zozobra, la incertidumbre y la melancolía. Es un poemario de belleza imperecedera y apasionado lirismo en cuyas páginas late aún el impulso del modernismo pero en donde se pueden apreciar los destellos de la renovación formal de la poesía que protagonizó el autor. Pablo Neruda (Chile, 1904-1973), cuyo verdadero nombre era Ricardo Eliécer Neftalí Reyes Basoalto, es uno de los poetas más importantes de Hispanoamérica. Obtuvo el premio Nobel de Literatura en 1971.\",\n    \"fechaPublicacion\": \"2010-11-01\",\n    \"imgurl\": \"https://images-na.ssl-images-amazon.com/images/I/51KjKHPQMOL._SX327_BO1,204,203,200_.jpg\",\n    \"edicion\": 1 ,\n    \"cantidad\": 2\n\n}",
+					"raw": "{\n    \"autor\": 1,\n    \"genero\": 1,\n    \"editorial\": 1,\n    \"idioma\": 1,\n    \"titulo\": \"20 poemas de amor y una canción desesperada\",\n    \"sinopsis\": \"\\\"Para mi corazón basta tu pecho, para tu libertad bastan mis alas. Desde mi boca llegará hasta el cielo lo que estaba dormido sobre tu alma. Es en ti la ilusión de cada día.\\\" Pablo Neruda, Poema 12 (fragmento). Este libro, publicado originalmente en 1924. Es una obra que refleja los claroscuros del amor: la vehemencia, el júbilo y la exaltación, pero también la zozobra, la incertidumbre y la melancolía. Es un poemario de belleza imperecedera y apasionado lirismo en cuyas páginas late aún el impulso del modernismo pero en donde se pueden apreciar los destellos de la renovación formal de la poesía que protagonizó el autor. Pablo Neruda (Chile, 1904-1973), cuyo verdadero nombre era Ricardo Eliécer Neftalí Reyes Basoalto, es uno de los poetas más importantes de Hispanoamérica. Obtuvo el premio Nobel de Literatura en 1971.\",\n    \"fechaPublicacion\": \"2010-11-01\",\n    \"imgurl\": \"https://images-na.ssl-images-amazon.com/images/I/51KjKHPQMOL._SX327_BO1,204,203,200_.jpg\",\n    \"edicion\": 1 ,\n    \"cantidad\": 1\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -509,7 +762,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"nombre\": \"Rene\",\n    \"apellido\": \"Morgado\",\n    \"edad\": 20,\n    \"email\": \"admin@mail.com\",\n    \"password\": \"pass123\", \n    \"administrador\": true\n}",
+					"raw": "{\n    \"nombre\": \"Luis Miguel\",\n    \"apellido\": \"Gallego Basteri \",\n    \"edad\": 51,\n    \"email\": \"luismiguel@gmail.com\",\n    \"password\": \"pass123\", \n    \"administrador\": false\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -542,7 +795,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"usuario\": 1,\n    \"libro\": 1,\n    \"fecha\": \"2021-11-21\",\n    \"entrega\": \"2021-11-22\"\n}",
+					"raw": "{\n    \"usuario\": 1,\n    \"libro\": 3,\n    \"fecha\": \"2021-11-21\",\n    \"entrega\": \"2021-11-23\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -575,7 +828,7 @@
 					}
 				],
 				"url": {
-					"raw": "localhost:3000/library/deleteAuthor/1",
+					"raw": "localhost:3000/library/deleteAuthor/3",
 					"host": [
 						"localhost"
 					],
@@ -583,7 +836,7 @@
 					"path": [
 						"library",
 						"deleteAuthor",
-						"1"
+						"3"
 					]
 				}
 			},
@@ -601,7 +854,7 @@
 					}
 				],
 				"url": {
-					"raw": "localhost:3000/library/deleteGender/1",
+					"raw": "localhost:3000/library/deleteGender/1002",
 					"host": [
 						"localhost"
 					],
@@ -609,7 +862,7 @@
 					"path": [
 						"library",
 						"deleteGender",
-						"1"
+						"1002"
 					]
 				}
 			},
@@ -627,7 +880,7 @@
 					}
 				],
 				"url": {
-					"raw": "localhost:3000/library/deleteEditorial/1",
+					"raw": "localhost:3000/library/deleteEditorial/2",
 					"host": [
 						"localhost"
 					],
@@ -635,7 +888,7 @@
 					"path": [
 						"library",
 						"deleteEditorial",
-						"1"
+						"2"
 					]
 				}
 			},
@@ -653,7 +906,7 @@
 					}
 				],
 				"url": {
-					"raw": "localhost:3000/library/deleteLanguage/1",
+					"raw": "localhost:3000/library/deleteLanguage/2",
 					"host": [
 						"localhost"
 					],
@@ -661,7 +914,7 @@
 					"path": [
 						"library",
 						"deleteLanguage",
-						"1"
+						"2"
 					]
 				}
 			},
@@ -679,7 +932,7 @@
 					}
 				],
 				"url": {
-					"raw": "localhost:3000/library/deleteBook/2",
+					"raw": "localhost:3000/library/deleteBook/1001",
 					"host": [
 						"localhost"
 					],
@@ -687,7 +940,7 @@
 					"path": [
 						"library",
 						"deleteBook",
-						"2"
+						"1001"
 					]
 				}
 			},
@@ -705,7 +958,7 @@
 					}
 				],
 				"url": {
-					"raw": "localhost:3000/library/deleteUser/1",
+					"raw": "localhost:3000/library/deleteUser/1004",
 					"host": [
 						"localhost"
 					],
@@ -713,7 +966,7 @@
 					"path": [
 						"library",
 						"deleteUser",
-						"1"
+						"1004"
 					]
 				}
 			},
@@ -732,7 +985,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"libro\": 1\n}",
+					"raw": "{\n    \"libro\": 3\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -740,7 +993,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/library/deleteRent/1",
+					"raw": "localhost:3000/library/deleteRent/1002",
 					"host": [
 						"localhost"
 					],
@@ -748,6 +1001,146 @@
 					"path": [
 						"library",
 						"deleteRent",
+						"1002"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "editGender",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "access-token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"genero\": \"Poesia Romantica\",\n    \"imagen\": \"https://www.catedra.com/imagenes/blog/poesia.jpg\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/library/editGender/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"library",
+						"editGender",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "editEditorial",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "access-token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"editorial\": \"Oceano exprés\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/library/editEditorial/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"library",
+						"editEditorial",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "editAuthor",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "access-token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"Nombre_Autor\": \"Luis\",\n    \"Apellido_Autor\": \"Miguel\",\n    \"Fecha_Nacimiento_Autor\": \"1998-10-12\",\n    \"Imagen_Autor\": \"https://www.biografiasyvidas.com/biografia/b/fotos/benedetti_mario_3.jpg\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/library/editAuthor/3",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"library",
+						"editAuthor",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "editLanguage",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "access-token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"idioma\": \"Castellano\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/library/editLanguage/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"library",
+						"editLanguage",
 						"1"
 					]
 				}

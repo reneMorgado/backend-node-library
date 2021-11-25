@@ -192,7 +192,6 @@ const Rentas = sequelize.define('Rentas',{
             model: 'Libros',
             key: 'Id_Libro'
         }
-
     },
     FechaRenta: {
         type: DataTypes.DATE,
