@@ -107,4 +107,23 @@ Router.delete('/deleteBook/:id', async(req,res)=>{
     }
 })
 
+Router.post('/editBook/:id', async(req,res)=>{
+    const payload = decript(req.headers['access-token'])
+    if(payload.isAdmin){
+        try{
+            const edited = await Libros.sequelize.query('DECLARE @Id_Libro INT, @Id_Autores INT, @Id_Genero INT, @Id_Editorial INT, @Id_Idioma INT, @Titulo VARCHAR(100), @Sinopsis VARCHAR(200), @FechaPublicacion VARCHAR(100), @ImgUrl VARCHAR(200), @Edicion INT EXEC addBook @Id_Libro:libro, @Id_Autores=:autor, @Id_Genero=:genero, @Id_Editorial=:editorial, @Id_Idioma=:idioma , @Titulo=:titulo, @Sinopsis=:sinopsis, @FechaPublicacion=:fechaPublicacion, @ImgUrl=:imgurl, @Edicion=:edicion',
+                { replacements: {libro: req.params.id, autor: req.body.autor, genero: req.body.genero, editorial: req.body.editorial, idioma: req.body.idioma,
+                    titulo: req.body.titulo, sinopsis: req.body.sinopsis, fechaPublicacion: req.body.fechaPublicacion, imgurl: req.body.imgurl,
+                    edicion: req.body.edicion,  }, type: Libros.sequelize.QueryTypes.EXEC })
+            res.status(200).send({success: true, created: true})
+        }catch(error){
+            let e = error.toString()
+            res.status(500).send({success:false, error: e})
+            console.log(e)
+        }
+    }else{
+        res.status(401).send({success:false, message: 'Acceso no autorizado'})
+    }
+})
+
 module.exports = Router

@@ -2,7 +2,7 @@ const { Sequelize } = require('sequelize')
 
 /* Conexión a la base de datos */
 const sequelize = new Sequelize('NodeTest', 'SA', 'Pass123!', {
-    host: '192.168.100.10',
+    host: '192.168.100.18',
     dialect: 'mssql',
     pool: {
         max: 5,

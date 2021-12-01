@@ -69,3 +69,30 @@ AS
             updatedAt = SYSDATETIME()
 		WHERE Id_Libro = @Id_Libro
 GO  
+
+CREATE PROCEDURE editBook
+    @Id_Libro INT,
+    @Id_Autores INT,
+	@Id_Genero INT,
+	@Id_Editorial INT,
+	@Id_Idioma INT,
+	@Titulo VARCHAR(100),
+	@Sinopsis VARCHAR(100),
+	@FechaPublicacion VARCHAR(100),
+	@ImgUrl VARCHAR(200),
+	@Edicion INT
+AS   
+    SET NOCOUNT ON;  
+    UPDATE dbo.Libros
+        SET Id_Autores = @Id_Autores,   
+            Id_Genero = @Id_Genero,
+            Id_Editorial = @Id_Editorial,
+            Id_Idioma = @Id_Idioma,
+            Titulo = @Titulo,
+            Sinopsis = @Sinopsis,
+            FechaPublicacion = @FechaPublicacion,
+            ImgUrl = @ImgUrl,
+            Edicion = @Edicion,
+            updatedAt = SYSDATETIME()
+        WHERE Id_Libro = @Id_Libro
+GO  
