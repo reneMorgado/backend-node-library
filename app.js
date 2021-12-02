@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 const port = process.env.PORT || 3000
+const morgan = require('morgan')
 
 const bodyParser = require('body-parser')
 
@@ -14,6 +15,8 @@ const {Libros, Autores, Generos, Editoriales, Idiomas, Usuarios, Rentas} = requi
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 app.use(cors())
+app.use(morgan('dev'))
+
 
 const createTable = async () => {
     await Autores.sync()
