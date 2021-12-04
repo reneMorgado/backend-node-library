@@ -54,45 +54,6 @@
 			"response": []
 		},
 		{
-			"name": "loginSession Copy",
-			"event": [
-				{
-					"listen": "prerequest",
-					"script": {
-						"exec": [
-							"var jsonData = pm.response.json();",
-							"pm.environment.set(\"token\", jsonData.token);"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"email\": \"renemorgado333@gmail.com\",\n    \"password\": \"pass123\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:3000/loginSession",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"loginSession"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "getAuthors",
 			"request": {
 				"method": "GET",
@@ -430,7 +391,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "localhost:3000/library/getBooksByAuthor/1",
+					"raw": "localhost:3000/library/getBooksByAuthor/:id",
 					"host": [
 						"localhost"
 					],
@@ -438,7 +399,13 @@
 					"path": [
 						"library",
 						"getBooksByAuthor",
-						"1"
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
 					]
 				}
 			},
@@ -520,7 +487,7 @@
 					}
 				],
 				"url": {
-					"raw": "localhost:3000/library/getUserNameById/1",
+					"raw": "localhost:3000/library/getUserNameById/2",
 					"host": [
 						"localhost"
 					],
@@ -528,7 +495,7 @@
 					"path": [
 						"library",
 						"getUserNameById",
-						"1"
+						"2"
 					]
 				}
 			},
@@ -762,7 +729,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"nombre\": \"Luis Miguel\",\n    \"apellido\": \"Gallego Basteri \",\n    \"edad\": 51,\n    \"email\": \"luismiguel@gmail.com\",\n    \"password\": \"pass123\", \n    \"administrador\": false\n}",
+					"raw": "{\n    \"nombre\": \"Rene\",\n    \"apellido\": \"Morgado \",\n    \"edad\": 51,\n    \"email\": \"admin@mail.com\",\n    \"password\": \"pass123\", \n    \"administrador\": true\n}",
 					"options": {
 						"raw": {
 							"language": "json"

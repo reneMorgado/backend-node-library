@@ -35,7 +35,7 @@ AS
     DELETE FROM dbo.Idiomas WHERE Id_Idioma = @Id_Idioma
 GO
 
-CREATE PROCEDURE editEditorial
+CREATE PROCEDURE editLanguage
     @Id_Idioma INT,
     @Idioma VARCHAR(50)
 AS   

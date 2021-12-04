@@ -27,15 +27,4 @@ AS
     WHERE Email = @Email
 GO 
 
-CREATE PROCEDURE addRent
-    @Id_Usuario INT,
-    @Id_Libro INT,
-    @FechaRenta DATE,
-    @FechaDevolucion DATE
-AS   
-    SET NOCOUNT ON;  
-    INSERT INTO dbo.Rentas(Id_Usuario, Id_Libro, FechaRenta, FechaDevolucion, createdAt, updatedAt) 
-		VALUES (@Id_Usuario, @Id_Libro, @FechaRenta, @FechaDevolucion, SYSDATETIME(), SYSDATETIME())
-GO  
-
 
