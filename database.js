@@ -1,15 +1,15 @@
 const { Sequelize } = require('sequelize')
 
 /* Conexión a la base de datos */
-const sequelize = new Sequelize('NodeTest', 'SA', 'Pass123!', {
-    host: '127.0.0.1',
-    dialect: 'mysql',
+const sequelize = new Sequelize('IngWeb', 'morgado', 'Pass1234', {
+    host: 'upiita-morgado.database.windows.net',
+    dialect: 'mssql',
     pool: {
         max: 5,
         min: 0,
-        idle: 10000
+        idle: 600000
     },
-    port: 3306
+    port: 1433
 })
 
 const connectDB = async() => {

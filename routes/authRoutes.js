@@ -18,9 +18,7 @@ Router.post('/loginSession', async (req,res) => {
                 const payload = {
                     isAdmin: user.Administrador
                 }
-                const token = jwt.sign(payload, llave, {
-                    expiresIn: 1440
-                });
+                const token = jwt.sign(payload, llave);
                 res.status(200).send({success: true, message: "Sesion iniciada", token, items:result})
             }else{
                 res.status(200).send({success:false, error: "Las contraseñas no coinciden"});
@@ -57,9 +55,7 @@ Router.post('/addUser', async(req,res)=>{
                     const payload = {
                         isAdmin: created.dataValues.Administrador
                     }
-                    const token = jwt.sign(payload, llave, {
-                        expiresIn: 1440
-                    });
+                    const token = jwt.sign(payload, llave);
                     res.status(200).send({success: true, token, created})
                 }
             }catch(error){
