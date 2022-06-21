@@ -3,7 +3,7 @@ const decript = require('jwt-decode')
 const Router = express.Router();
 
 const { Generos } = require('../models/Library.js');
-
+ 
 Router.get('/getGenders', async(req,res)=>{
     try {
         const items = await Generos.sequelize.query('EXEC getGenders', { type: Generos.sequelize.QueryTypes.EXEC })

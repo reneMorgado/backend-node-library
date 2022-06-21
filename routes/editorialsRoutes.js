@@ -3,7 +3,7 @@ const decript = require('jwt-decode')
 const Router = express.Router();
 
 const { Editoriales } = require('../models/Library.js');
-
+ 
 Router.get('/getEditorials', async(req,res)=>{
     const payload = decript(req.headers['access-token'])
     if(payload.isAdmin){

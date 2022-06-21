@@ -10,7 +10,7 @@ AS
     SET NOCOUNT ON;  
     SELECT * FROM dbo.Usuarios  
     WHERE Id_Usuario = @Id_Usuario
-GO  
+GO 
 
 CREATE PROCEDURE deleteUser
     @Id_Usuario INT

@@ -4,7 +4,7 @@ const jwt = require ('jsonwebtoken')
 const bcrypt = require('bcryptjs');
 const rondasEncriptacion = 10;
 const Router = express.Router();
-
+ 
 const {Libros, Autores, Generos, Editoriales, Idiomas, Usuarios, Rentas} = require('../models/Library')
 
 Router.post('/loginSession', async (req,res) => {

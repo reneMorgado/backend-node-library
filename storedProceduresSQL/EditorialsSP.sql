@@ -10,7 +10,7 @@ AS
     SET NOCOUNT ON;  
     SELECT * FROM dbo.Editoriales  
     WHERE Id_Editorial = @Id_Editorial
-GO  
+GO   
 
 CREATE PROCEDURE getEditorialByName
     @Editorial VARCHAR(50)

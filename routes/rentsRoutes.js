@@ -10,7 +10,7 @@ const llave = "Esponja";
 const Router = express.Router();
 
 const {Rentas, Libros} = require('../models/Library.js');
-
+ 
 Router.get('/getRents', async(req,res)=>{
     const payload = decript(req.headers['access-token'])
     if(payload.isAdmin){

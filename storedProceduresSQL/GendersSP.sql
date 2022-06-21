@@ -10,7 +10,7 @@ AS
     SET NOCOUNT ON;  
     SELECT * FROM dbo.Generos  
     WHERE Id_Genero = @Id_Genero
-GO  
+GO 
 
 CREATE PROCEDURE getGenderByName
     @Genero VARCHAR(50)

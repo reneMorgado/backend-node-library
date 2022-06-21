@@ -3,7 +3,7 @@ AS
     SET NOCOUNT ON;  
     SELECT * FROM dbo.Libros 
 GO  
-
+ 
 CREATE PROCEDURE getBookById
     @Id_Libro INT
 AS   

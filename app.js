@@ -11,7 +11,7 @@ const auth = require ('./routes/authRoutes')
 
 const {connectDB} = require('./database')
 const {Libros, Autores, Generos, Editoriales, Idiomas, Usuarios, Rentas} = require('./models/Library.js')
-
+ 
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 app.use(cors())

@@ -10,7 +10,7 @@ AS
     SET NOCOUNT ON;  
     SELECT * FROM dbo.Idiomas  
     WHERE Id_Idioma = @Id_Idioma
-GO  
+GO 
 
 CREATE PROCEDURE getLanguageByName
     @Idioma VARCHAR(50)

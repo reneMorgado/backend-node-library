@@ -10,7 +10,7 @@ AS
     SET NOCOUNT ON;  
     SELECT * FROM dbo.Rentas  
     WHERE Id_Usuario = @Id_Usuario
-GO  
+GO 
 
 CREATE PROCEDURE addRent
     @Id_Usuario INT,

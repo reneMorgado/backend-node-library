@@ -3,7 +3,7 @@
 		"_postman_id": "0b47520c-4a64-49bf-9226-05a75b781731",
 		"name": "ProyectoBD",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-	},
+	}, 
 	"item": [
 		{
 			"name": "loginSession",

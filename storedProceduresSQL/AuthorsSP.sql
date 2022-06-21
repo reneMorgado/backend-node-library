@@ -3,7 +3,7 @@ AS
     SET NOCOUNT ON;  
     SELECT * FROM dbo.Autores 
 GO  
-
+ 
 CREATE PROCEDURE getAuthorById
     @Id_Autor INT
 AS   

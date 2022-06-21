@@ -1,5 +1,6 @@
 -- Configuración inicial para que funcione
-CREATE DATABASE NodeTest;
-USE NodeTest;
+CREATE DATABASE IngWeb;
+USE IngWeb;
 
-CREATE LOGIN SA WITH PASSWORD='P@$$w0rd';
+CREATE LOGIN "morgado" WITH PASSWORD='pass123!';
+ 

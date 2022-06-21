@@ -1,6 +1,6 @@
 const { DataTypes } = require('sequelize')
 const {sequelize} = require('../database')
-
+ 
 const Autores = sequelize.define('Autores',{
     Id_Autor:{
         type: DataTypes.INTEGER,
